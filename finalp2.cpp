@@ -16,6 +16,7 @@ struct Node{
 int main(){
 const string NAMES[] = {"Jack", "Oliver", "Harry", "George", "Noah", "Charlie", "Jacob", "Freddie", "Alfie", "Oscar"};
 const string ORDERS[] = {"Cappuccino", "Latte", "Espresso", "Americano", "Mocha", "Macchiato", "Flat White"};
+const string MUFFINS[] = {"Blueberry", "Chocolate Chip", "Bran", "Banana Nut", "Corn", "Lemon Poppy Seed", "Pumpkin"};
 
 Node* head = nullptr;
 Node* tail = nullptr;
@@ -32,15 +33,20 @@ for (int i  = 0; i < 3; i++){
         tail->next = newNode;
         tail = newNode;
     }
-    cout << "Intial queue: " << newNode->name << endl;
+    cout << "Intial cofee queue: " << newNode->name << endl;
 }
-
+//Milestone 3
+deque<Node> muffinQ;
+for (int i = 0; i < 3; i++){
+    Node newNode{NAMES[rand() % 10], MUFFINS[rand() % 7], nullptr};
+    muffinQ.push_back(newNode);
+}
 
 for (int r = 1; r <= 10; r++){
     cout << "Round " << r << ":\n";
     Node* current = head;
     if (head != nullptr){
-        cout << current->name << " ordered a " << current->order << endl;
+        cout << "Coffee booth: " << current->name << " ordered a " << current->order << endl;
         current = current->next;
         if (head == nullptr){
             tail = nullptr;
@@ -62,7 +68,14 @@ for (int r = 1; r <= 10; r++){
     } else {
         cout << "No new customer joined" << endl;
     }
+    if (!muffinQ.empty()){
+        Node muffinC = muffinQ.front();
+        muffinQ.pop_front();
+        cout << "Muffin booth: " << muffinC.name << " ordered a " << muffinC.order << endl;
+    
+    }
 }
+
 
 
 return 0;
