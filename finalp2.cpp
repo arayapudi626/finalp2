@@ -6,12 +6,14 @@
 using namespace std;
 
 //Milestone 1: 
-struct Coffee{
+struct Node{
     string name;
     string order;
-    Coffee *next;
+    Node *next;
 };
 
-const string NAMES = {"Jack", "Oliver", "Harry", "George", "Noah", "Charlie", "Jacob", "Freddie", "Alfie", "Oscar"};
-const string ORDERS = {"Cappuccino", "Latte", "Espresso", "Americano", "Mocha", "Macchiato", "Flat White"};
-const int NAMES_SIZE = NAMES.size() / size;
+const string NAMES[] = {"Jack", "Oliver", "Harry", "George", "Noah", "Charlie", "Jacob", "Freddie", "Alfie", "Oscar"};
+const string ORDERS[] = {"Cappuccino", "Latte", "Espresso", "Americano", "Mocha", "Macchiato", "Flat White"};
+
+Node* head = nullptr;
+Node* tail = nullptr;
