@@ -17,6 +17,7 @@ int main(){
 const string NAMES[] = {"Jack", "Oliver", "Harry", "George", "Noah", "Charlie", "Jacob", "Freddie", "Alfie", "Oscar"};
 const string ORDERS[] = {"Cappuccino", "Latte", "Espresso", "Americano", "Mocha", "Macchiato", "Flat White"};
 const string MUFFINS[] = {"Blueberry", "Chocolate Chip", "Bran", "Banana Nut", "Corn", "Lemon Poppy Seed", "Pumpkin"};
+const string BRACELETS[] = {"Silver", "Gold", "Platinum", "Diamond", "Leather", "Beaded", "Charm"};
 
 Node* head = nullptr;
 Node* tail = nullptr;
@@ -42,6 +43,14 @@ for (int i = 0; i < 3; i++){
     muffinQ.push_back(newNode);
     cout << "Initial muffin queue: " << newNode.name << endl;
 }
+
+//Milestone 4:
+vector<Node> braceletQ;
+    for (int i = 0; i < 3; i++){
+        Node newNode{NAMES[rand() % 10], BRACELETS[rand()%7], nullptr};
+        braceletQ.push_back(newNode);
+        cout << "Initial bracelet queue: " << newNode.name << endl;
+    }
 
 for (int r = 1; r <= 10; r++){
     cout << "Round " << r << ":\n";
@@ -82,6 +91,20 @@ for (int r = 1; r <= 10; r++){
         cout << newNode.name << " joined the muffin queue and ordered a " << newNode.order << endl;
     } else {
         cout << "No new customer joined the muffin queue" << endl;
+    }
+
+    if (!braceletQ.empty()){
+        Node braceletC = braceletQ.front();
+        cout << "Bracelet booth: " << braceletC.name << " ordered a " << braceletC.order << endl;
+    } else {
+        cout << "Bracelet booth: No customer to serve" << endl;
+    }
+    if (rand() % 2 == 1){
+        Node newNode{NAMES[rand() % 10], BRACELETS[rand()%7], nullptr};
+        braceletQ.push_back(newNode);
+        cout << newNode.name << " joined the bracelet queue" << endl;
+    } else {
+        cout << "No new customer joined the bracelet queue" << endl;
     }
  
 }
