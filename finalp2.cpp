@@ -17,3 +17,23 @@ const string ORDERS[] = {"Cappuccino", "Latte", "Espresso", "Americano", "Mocha"
 
 Node* head = nullptr;
 Node* tail = nullptr;
+
+void 
+
+
+int main(){
+//Milestone 2:
+for (int i  = 0; i < 3; i++){
+    string name = NAMES[rand() % 10];
+    string order = ORDERS[rand() % 7];
+    Node* newNode = new Node{name, order, nullptr};
+    if (head == nullptr){
+        head = newNode;
+        tail = newNode;
+    } else {
+        tail->next = newNode;
+        tail = newNode;
+    }
+}
+return 0;
+}
