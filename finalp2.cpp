@@ -95,6 +95,7 @@ for (int r = 1; r <= 10; r++){
 
     if (!braceletQ.empty()){
         Node braceletC = braceletQ.front();
+        braceletQ.erase(braceletQ.begin());
         cout << "Bracelet booth: " << braceletC.name << " ordered a " << braceletC.order << endl;
     } else {
         cout << "Bracelet booth: No customer to serve" << endl;
