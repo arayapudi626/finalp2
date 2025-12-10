@@ -67,7 +67,7 @@ for (int i = 0; i < 3; i++){
 
 
 for (int r = 1; r <= 10; r++){
-    cout << "Round " << r << ":\n";
+    cout << "-------ROUND " << r << "-------\n";
     Node* current = head;
     if (head != nullptr){
         cout << "Coffee booth: " << current->name << " ordered a " << current->order << endl;
@@ -92,6 +92,7 @@ for (int r = 1; r <= 10; r++){
     } else {
         cout << "No new customer joined the coffee queue" << endl;
     }
+    cout << endl;
 
     if (!muffinQ.empty()){
         Node muffinC = muffinQ.front();
@@ -107,6 +108,7 @@ for (int r = 1; r <= 10; r++){
     } else {
         cout << "No new customer joined the muffin queue" << endl;
     }
+    cout << endl;
 
     if (!braceletQ.empty()){
         Node braceletC = braceletQ.front();
@@ -122,6 +124,7 @@ for (int r = 1; r <= 10; r++){
     } else {
         cout << "No new customer joined the bracelet queue" << endl;
     }
+    cout << endl;
 
     if (!topQ.empty()){
         Node topC = topQ.top();
