@@ -32,7 +32,10 @@ for (int i  = 0; i < 3; i++){
         tail->next = newNode;
         tail = newNode;
     }
+    cout << "Intial queue: " << newNode->name << endl;
 }
+
+
 for (int r = 1; r <= 10; r++){
     cout << "Round " << r << ":\n";
     Node* current = head;
@@ -55,6 +58,9 @@ for (int r = 1; r <= 10; r++){
             tail->next = newNode;
             tail = newNode;
         }
+        cout << newNode->name << " joined the queue and ordered a " << newNode->order << endl;
+    } else {
+        cout << "No new customer joined" << endl;
     }
 }
 
