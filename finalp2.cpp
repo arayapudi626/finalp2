@@ -2,6 +2,7 @@
 #include <vector>
 #include <deque>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ const string NAMES[] = {"Jack", "Oliver", "Harry", "George", "Noah", "Charlie", 
 const string ORDERS[] = {"Cappuccino", "Latte", "Espresso", "Americano", "Mocha", "Macchiato", "Flat White"};
 const string MUFFINS[] = {"Blueberry", "Chocolate Chip", "Bran", "Banana Nut", "Corn", "Lemon Poppy Seed", "Pumpkin"};
 const string BRACELETS[] = {"Silver", "Gold", "Platinum", "Diamond", "Leather", "Beaded", "Charm"};
+const string TOPS[] = {"T-Shirt", "Hoodie", "Tank Top", "Sweater", "Blouse", "Crop Top", "Jacket"};
 
 Node* head = nullptr;
 Node* tail = nullptr;
@@ -52,6 +54,15 @@ vector<Node> braceletQ;
         cout << "Initial bracelet queue: " << newNode.name << endl;
     }
 
+//Milestone 5:
+stack<Node> topQ;
+for (int i = 0; i < 3; i++){
+    Node newNode{NAMES[rand() % 10], TOPS[rand() % 7], nullptr};
+    topQ.push(newNode);
+    cout << "Initial top queue: " << newNode.name << endl;
+}
+
+
 for (int r = 1; r <= 10; r++){
     cout << "Round " << r << ":\n";
     Node* current = head;
@@ -78,6 +89,7 @@ for (int r = 1; r <= 10; r++){
     } else {
         cout << "No new customer joined the coffee queue" << endl;
     }
+
     if (!muffinQ.empty()){
         Node muffinC = muffinQ.front();
         muffinQ.pop_front();
@@ -106,6 +118,21 @@ for (int r = 1; r <= 10; r++){
         cout << newNode.name << " joined the bracelet queue" << endl;
     } else {
         cout << "No new customer joined the bracelet queue" << endl;
+    }
+
+    if (!topQ.empty()){
+        Node topC = topQ.top();
+        topQ.pop();
+        cout << "Top booth: " << topC.name << " ordered a " << topC.order << endl;
+    } else {
+        cout << "Top booth: No customer to serve" << endl;
+    }
+    if (rand() % 2 == 1){
+        Node newNode{NAMES[rand() % 10], TOPS[rand() % 7], nullptr};
+        topQ.push(newNode);
+        cout << newNode.name << " joined the top queue and ordered a " << newNode.order << endl;
+    } else {
+        cout << "No new customer joined the top queue" << endl;
     }
  
 }
