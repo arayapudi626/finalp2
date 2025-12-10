@@ -33,13 +33,14 @@ for (int i  = 0; i < 3; i++){
         tail->next = newNode;
         tail = newNode;
     }
-    cout << "Intial cofee queue: " << newNode->name << endl;
+    cout << "Intial coffee queue: " << newNode->name << endl;
 }
 //Milestone 3
 deque<Node> muffinQ;
 for (int i = 0; i < 3; i++){
     Node newNode{NAMES[rand() % 10], MUFFINS[rand() % 7], nullptr};
     muffinQ.push_back(newNode);
+    cout << "Initial muffin queue: " << newNode.name << endl;
 }
 
 for (int r = 1; r <= 10; r++){
@@ -52,7 +53,7 @@ for (int r = 1; r <= 10; r++){
             tail = nullptr;
         }
     } else{
-    cout << "No customer to serve " << endl;
+    cout << "No customer in coffee booth to serve " << endl;
     }
     int join = rand() % 2;
     if (join == 1){
@@ -64,19 +65,27 @@ for (int r = 1; r <= 10; r++){
             tail->next = newNode;
             tail = newNode;
         }
-        cout << newNode->name << " joined the queue and ordered a " << newNode->order << endl;
+        cout << newNode->name << " joined the coffee queue and ordered a " << newNode->order << endl;
     } else {
-        cout << "No new customer joined" << endl;
+        cout << "No new customer joined the coffee queue" << endl;
     }
     if (!muffinQ.empty()){
         Node muffinC = muffinQ.front();
         muffinQ.pop_front();
         cout << "Muffin booth: " << muffinC.name << " ordered a " << muffinC.order << endl;
-    
+    } else {
+        cout << "Muffin booth: No cusotmer to serve" << endl;
     }
+    if (rand() % 2 == 1){
+        Node newNode{NAMES[rand() % 10], MUFFINS[rand() % 7], nullptr};
+        muffinQ.push_back(newNode);
+        cout << newNode.name << " joined the muffin queue and ordered a " << newNode.order << endl;
+    } else {
+        cout << "No new customer joined the muffin queue" << endl;
+    }
+ 
+}
+   return 0;
 }
 
 
-
-return 0;
-}
