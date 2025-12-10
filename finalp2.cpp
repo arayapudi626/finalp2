@@ -12,16 +12,14 @@ struct Node{
     Node *next;
 };
 
+
+int main(){
 const string NAMES[] = {"Jack", "Oliver", "Harry", "George", "Noah", "Charlie", "Jacob", "Freddie", "Alfie", "Oscar"};
 const string ORDERS[] = {"Cappuccino", "Latte", "Espresso", "Americano", "Mocha", "Macchiato", "Flat White"};
 
 Node* head = nullptr;
 Node* tail = nullptr;
 
-void 
-
-
-int main(){
 //Milestone 2:
 for (int i  = 0; i < 3; i++){
     string name = NAMES[rand() % 10];
@@ -35,5 +33,31 @@ for (int i  = 0; i < 3; i++){
         tail = newNode;
     }
 }
+for (int r = 1; r <= 10; r++){
+    cout << "Round " << r << ":\n";
+    Node* current = head;
+    if (head != nullptr){
+        cout << current->name << " ordered a " << current->order << endl;
+        current = current->next;
+        if (head == nullptr){
+            tail = nullptr;
+        }
+    } else{
+    cout << "No customer to serve " << endl;
+    }
+    int join = rand() % 2;
+    if (join == 1){
+        Node * newNode = new Node{NAMES[rand() % 10], ORDERS[rand() % 7], nullptr};
+        if (tail == nullptr){
+            head = tail = newNode;
+        }
+        else {
+            tail->next = newNode;
+            tail = newNode;
+        }
+    }
+}
+
+
 return 0;
 }
